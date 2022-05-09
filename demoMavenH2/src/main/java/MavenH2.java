@@ -12,7 +12,7 @@ public class MavenH2 {
         String stringURLConnection = "jdbc:h2:tcp://localhost/~/dataBaseH2/campusPayPal";
         String username = "albert";
         String password = "1234";
-        //connect ot url with cnnection object
+        //connect ot url with connection object
         Connection connection = DriverManager.getConnection(stringURLConnection, username, password);
         System.out.println("Connected to H2 local database.");
 
@@ -26,10 +26,15 @@ public class MavenH2 {
         sql = "INSERT INTO users (ID, name, surname, age) VALUES (1, 'Amanda', 'Jones', 25 )";
         int result = statement.executeUpdate(sql);
         System.out.println("Operation write to DB: " +  result);
+
         sql = "INSERT INTO users (ID, name, surname, age) VALUES (2, 'Linda', 'Jones', 28 )";
         result = statement.executeUpdate(sql);
+        System.out.println("Operation write to DB: " +  result);
+
         sql = "INSERT INTO users (ID, name, surname, age) VALUES (3, 'Susy', 'Jones', 56 )";
         result = statement.executeUpdate(sql);
+        System.out.println("Operation write to DB: " +  result);
+
         sql = "INSERT INTO users (ID, name, surname, age) VALUES (4, 'Lola', 'Figuerols', 36 )";
         result = statement.executeUpdate(sql);
         System.out.println("Operation write to DB: " +  result);

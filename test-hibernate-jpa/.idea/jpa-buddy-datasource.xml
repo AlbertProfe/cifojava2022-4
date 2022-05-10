@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="b103d734-ece3-4bfb-8218-17068171f4cc" name="test-hibernate-jpa" url="jdbc:h2:file:~/h2/test-hibernate-jpa" driverClass="org.h2.Driver" />
+    </data-sources>
+  </component>
+</project>

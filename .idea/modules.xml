@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/cifojava2022-4_cloned.iml" filepath="$PROJECT_DIR$/.idea/cifojava2022-4_cloned.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demoMavenH2/demoMavenH2.iml" filepath="$PROJECT_DIR$/demoMavenH2/demoMavenH2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraryH2Command/myfirstprojectspring.iml" filepath="$PROJECT_DIR$/libraryH2Command/myfirstprojectspring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test-hibernate-jpa/test-hibernate-jpa.iml" filepath="$PROJECT_DIR$/test-hibernate-jpa/test-hibernate-jpa.iml" />
+    </modules>
+  </component>
+</project>

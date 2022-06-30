@@ -9,54 +9,32 @@ public class MavenH2 {
         //GET path on Windows: jdbc:h2:C:\Users\AdministradorCIFO\dataBaseH2\campusPayPal
         //GET localhost jdb tcp: jdbc:h2:tcp://localhost/
         //concatenate from USER WINDOWS: jdbc:h2:tcp://localhost/~/dataBaseH2/campusPayPal
-        String stringURLConnection = "jdbc:h2:tcp://localhost/~/dataBaseH2/campusPayPal";
-        String username = "albert";
+        String stringURLConnection = "jdbc:h2:tcp://localhost/c:/dataBaseH2/demoMavenH2";
+        String username = "alex";
         String password = "1234";
         //connect ot url with connection object
         Connection connection = DriverManager.getConnection(stringURLConnection, username, password);
         System.out.println("Connected to H2 local database.");
+        System.out.println(" ");
 
-        String sql = "CREATE TABLE users (ID int PRIMARY KEY, name VARCHAR(50), surname VARCHAR(50), age INTEGER)";
-
+        String tableName = "USERSDB";
         Statement statement = connection.createStatement();
-        statement.execute(sql);
 
-        System.out.println("Created table cards");
+        if (Check.check(tableName,connection)){
+            Check.dropTable(tableName,connection);
+            Check.createTable(tableName,connection);
+            Check.persistSqlData(tableName, statement);
+            Check.listQuerytable(tableName,statement);
 
-        sql = "INSERT INTO users (ID, name, surname, age) VALUES (1, 'Amanda', 'Jones', 25 )";
-        int result = statement.executeUpdate(sql);
-        System.out.println("Operation write to DB: " +  result);
+        }else{
+            Check.createTable(tableName,connection);
+            Check.persistSqlData(tableName, statement);
+            Check.listQuerytable(tableName,statement);
 
-        sql = "INSERT INTO users (ID, name, surname, age) VALUES (2, 'Linda', 'Jones', 28 )";
-        result = statement.executeUpdate(sql);
-        System.out.println("Operation write to DB: " +  result);
-
-        sql = "INSERT INTO users (ID, name, surname, age) VALUES (3, 'Susy', 'Jones', 56 )";
-        result = statement.executeUpdate(sql);
-        System.out.println("Operation write to DB: " +  result);
-
-        sql = "INSERT INTO users (ID, name, surname, age) VALUES (4, 'Lola', 'Figuerols', 36 )";
-        result = statement.executeUpdate(sql);
-        System.out.println("Operation write to DB: " +  result);
-
-        sql = "SELECT * FROM users";
-
-        //Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
-
-        int count = 0;
-        while (resultSet.next()) {
-            count++;
-            int ID = resultSet.getInt("ID");
-            String name = resultSet.getString("name");
-            String surname = resultSet.getString("surname");
-            int age = resultSet.getInt("age");
-
-            System.out.println("users #" + count + ": " + ID + ", " + name + " "  + surname + ", " + age);
         }
 
-
         connection.close();
+
 
     }
 }
